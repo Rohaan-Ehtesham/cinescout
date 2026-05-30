@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BrowserRouter, Link, NavLink, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { HashRouter, Link, NavLink, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { alerts, movies, seatLayout, upcomingMovies, venues } from './data.js';
 import CityModal from './components/CityModal.jsx';
 import Footer from './components/Footer.jsx';
@@ -1022,7 +1022,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className={mounted ? 'app mounted' : 'app'}>
         <NavBar city={city} onOpenCityModal={() => setModalOpen(true)} navOpen={navOpen} setNavOpen={setNavOpen} />
         <CityModal isOpen={modalOpen} onClose={() => setModalOpen(false)} city={city} onSelectCity={(value) => setCity(value)} />
@@ -1041,6 +1041,6 @@ export default function App() {
         </div>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
